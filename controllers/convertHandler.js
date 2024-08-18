@@ -101,4 +101,4 @@ function ConvertHandler() {
   };  
 }
 
-module.exports = ConvertHandler;
+module.exports = ConvertHandler
