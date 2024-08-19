@@ -20,11 +20,12 @@ module.exports = function (app) {
     console.log(`initNum: ${initNum}`);
     console.log(`initUnit: ${initUnit}`);
 
+    /*
     if (initNum === undefined || initUnit === undefined) {
       return res.status(400).send('invalid number and/or unit');
     }
+    */
     
-    /*
     if (initNum === undefined && initUnit === undefined) {
       return res.status(400).send('invalid number and unit');
     }
@@ -36,7 +37,7 @@ module.exports = function (app) {
     if (initUnit === undefined) {
       return res.status(400).send('invalid unit');
     }
-      */
+    
     
     const returnNum = convertHandler.convert(initNum, initUnit);
     const returnUnit = convertHandler.getReturnUnit(initUnit);
