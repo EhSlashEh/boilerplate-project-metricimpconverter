@@ -26,32 +26,30 @@ function ConvertHandler() {
   };
   
   this.getUnit = function(input) {
-    let result;
+    const unitMatch = input.match(/[a-zA-Z]+$/);
+    if (!unitMatch) return undefined;
+    
+    const validUnits = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
+    let unit = unitMatch[0].toLowerCase();
 
-    // Extract the unit part of the input
-    result = input.match(/[a-zA-Z]+/g);
-    if (result) {
-      result = result[0].toLowerCase();
-      const validUnits = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
-      if (validUnits.includes(result)) {
-        return result === 'l' ? 'L' : result; // Handle case sensitivity for liters
-      }
-    }
-    return undefined;
+    if (unit === 'l') unit = 'L'; // Handle the special case for liters
+    
+    return validUnits.includes(unit) ? unit : undefined;
   };
   
   this.getReturnUnit = function(initUnit) {
-    const unitsMap = {
-      'gal': 'L',
-      'L': 'gal',
-      'mi': 'km',
-      'km': 'mi',
-      'lbs': 'kg',
-      'kg': 'lbs'
+    const unitMap = {
+      gal: 'L',
+      l: 'gal',
+      mi: 'km',
+      km: 'mi',
+      lbs: 'kg',
+      kg: 'lbs'
     };
-    return unitsMap[initUnit];
+    
+    return unitMap[initUnit.toLowerCase()];
   };
-
+  
   this.spellOutUnit = function(unit) {
     const spellOutMap = {
       'gal': 'gallons',

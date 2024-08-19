@@ -7,6 +7,7 @@ chai.use(chaiHttp);
 
 suite('Functional Tests', function() {
 
+  // Good
   test('Convert a valid input such as 10L: GET request to /api/convert', function(done) {
     chai.request(server)
       .get('/api/convert')
@@ -54,6 +55,7 @@ suite('Functional Tests', function() {
       });
   });
 
+  // Good
   test('Convert with no number such as kg: GET request to /api/convert', function(done) {
     chai.request(server)
       .get('/api/convert')
