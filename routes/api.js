@@ -15,6 +15,11 @@ module.exports = function (app) {
     const initNum = convertHandler.getNum(input);
     const initUnit = convertHandler.getUnit(input);
 
+    // Print values for debugging
+    console.log(`Input: ${input}`);
+    console.log(`initNum: ${initNum}`);
+    console.log(`initUnit: ${initUnit}`);    
+
     if (initNum === undefined && initUnit === undefined) {
       return res.status(400).send('invalid number and unit');
     }

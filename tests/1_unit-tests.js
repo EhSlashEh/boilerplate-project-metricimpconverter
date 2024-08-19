@@ -31,7 +31,7 @@ suite('Unit Tests', function(){
   });
 
   test('convertHandler should correctly read each valid input unit', function() {
-    const input = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
+    const input = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
     input.forEach(function(ele) {
       assert.equal(convertHandler.getUnit(ele), ele);
     });
@@ -42,7 +42,7 @@ suite('Unit Tests', function(){
   });
 
   test('convertHandler should return the correct return unit for each valid input unit', function() {
-    const input = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
+    const input = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
     const expect = ['L', 'gal', 'km', 'mi', 'kg', 'lbs'];
     input.forEach(function(ele, i) {
       assert.equal(convertHandler.getReturnUnit(ele), expect[i]);
