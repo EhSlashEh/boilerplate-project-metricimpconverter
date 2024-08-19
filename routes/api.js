@@ -14,9 +14,17 @@ module.exports = function (app) {
     // Validate input
     const initNum = convertHandler.getNum(input);
     const initUnit = convertHandler.getUnit(input);
+
+    if (initNum === undefined && initUnit === undefined) {
+      return res.status(400).send('invalid number and unit');
+    }
     
-    if (initNum === undefined || initUnit === undefined) {
-      return res.status(400).send('invalid number and/or unit');
+    if (initNum === undefined) {
+      return res.status(400).send('invalid number');
+    }
+    
+    if (initUnit === undefined) {
+      return res.status(400).send('invalid unit');
     }
     
     const returnNum = convertHandler.convert(initNum, initUnit);
