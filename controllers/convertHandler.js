@@ -47,7 +47,7 @@ function ConvertHandler() {
       kg: 'lbs'
     };
     
-    return unitMap[initUnit.toLowerCase()];
+    return unitMap[initUnit];
   };
   
   this.spellOutUnit = function(unit) {
