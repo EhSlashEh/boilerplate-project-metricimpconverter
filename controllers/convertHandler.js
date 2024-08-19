@@ -29,7 +29,7 @@ function ConvertHandler() {
     const unitMatch = input.match(/[a-zA-Z]+$/);
     if (!unitMatch) return undefined;
     
-    const validUnits = ['gal', 'l', 'mi', 'km', 'lbs', 'kg'];
+    const validUnits = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
     let unit = unitMatch[0].toLowerCase();
 
     if (unit === 'l') unit = 'L'; // Handle the special case for liters
@@ -40,7 +40,7 @@ function ConvertHandler() {
   this.getReturnUnit = function(initUnit) {
     const unitMap = {
       gal: 'L',
-      l: 'gal',
+      L: 'gal',
       mi: 'km',
       km: 'mi',
       lbs: 'kg',
